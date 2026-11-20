@@ -81,6 +81,30 @@
     } else {
       protectSections.forEach(animateProtectText);
     }
+
+    var whoSections = document.querySelectorAll(".who");
+    function animateWhoSection(section) {
+      section.querySelectorAll(
+        ".who-text h6, .who-text h2, .who-text .who-lead, .who-text .who-block, .who-media"
+      ).forEach(function (el, index) {
+        el.classList.add("page-slide-up");
+        el.style.setProperty("--page-slide-up-delay", index * 120 + "ms");
+      });
+    }
+
+    if ("IntersectionObserver" in window) {
+      var whoObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animateWhoSection(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      whoSections.forEach(function (section) { whoObserver.observe(section); });
+    } else {
+      whoSections.forEach(animateWhoSection);
+    }
   }
 
   if (homeMain && !reduceMotion && "IntersectionObserver" in window) {
