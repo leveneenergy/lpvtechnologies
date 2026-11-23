@@ -115,6 +115,27 @@ img {
   color: #fff;
 }
 
+/* Compact Resources dropdown only */
+.lp-nav .navbar-nav > .dropdown:last-child > .dropdown-menu {
+  min-width: 84px;
+  width: 84px;
+  padding: 0;
+  border-radius: 10px;
+}
+
+.lp-nav .navbar-nav > .dropdown:last-child .dropdown-item {
+  padding: .45rem .65rem;
+  font-size: .875rem;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* Compact Products dropdown */
+.lp-nav .navbar-nav > .dropdown:nth-child(4) > .dropdown-menu {
+  min-width: 170px;
+  width: 170px;
+}
+
 @media (min-width: 992px) {
 
   .lp-nav .dropdown:hover>.dropdown-menu,
