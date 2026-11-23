@@ -204,7 +204,7 @@ img {
 }
 
 .hero-content .btn {
-  transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease;
+  transition: transform .20s ease, box-shadow .25s ease, background-color .20s ease;
   font-size: 1.05rem;
   padding: .4rem 1.2rem;
   margin-top: 2.2rem;
@@ -1678,7 +1678,7 @@ img {
 }
 
 .partner p {
-  font-size: .9rem;
+  font-size: 17px;
   line-height: 1.5;
   margin: 2.4rem 0 0;
 }
@@ -1765,7 +1765,7 @@ img {
   .apart-item .tile,
   .ready-grid .tile,
   .ready-grid>div {
-    transition-duration: .01ms;
+    transition-duration: .03ms;
   }
 
   .hero-content .btn:hover,
@@ -2599,7 +2599,7 @@ img {
   padding: 2.5rem 1.25rem;
   text-align: center;
   background: #fff;
-  transition: box-shadow .2s;
+  transition: box-shadow .4s;
 }
 
 .pp-card:hover {
@@ -2778,7 +2778,7 @@ img {
 .faqc {
   border-radius: 16px;
   overflow: hidden;
-  transition: transform .25s ease, box-shadow .25s ease;
+  transition: transform .29s ease, box-shadow .29s ease;
 }
 
 .faqc.faq-card-in {
@@ -2827,7 +2827,7 @@ img {
   padding: 1.25rem;
   min-height: 64px;
   border-radius: 16px;
-  transition: background .3s;
+  transition: background .4s;
 }
 
 .faqc-head::-webkit-details-marker {
@@ -2844,7 +2844,7 @@ img {
   font-size: 1.4rem;
   color: #0fcc7c;
   flex: none;
-  transition: transform .3s, color .3s;
+  transition: transform .4s, color .4s;
 }
 
 .faqc[open]>.faqc-head i {
@@ -3064,7 +3064,7 @@ img {
   background: #c8c8c8;
   color: #222;
   cursor: not-allowed;
-  transition: background .2s, color .2s;
+  transition: background .4s, color .4s;
 }
 
 .cf-card:valid .cf-btn {
@@ -3642,7 +3642,7 @@ img {
   color: #000;
   font-size: 1rem;
   line-height: 1.5;
-  transition: color .2s;
+  transition: color .4s;
 }
 
 .post-latest-date {
@@ -3811,6 +3811,46 @@ img {
   main .lead-text,
   main .protect-hero p {
     line-height: 1.55;
+  }
+}
+
+/* ===== ALL PAGES: Slower, smoother transitions ===== */
+*,
+*::before,
+*::after {
+  transition-duration: .60s;
+}
+
+.carousel-item,
+.carousel.fade .carousel-item,
+.carousel-fade .carousel-item,
+.accordion-collapse,
+.accordion-collapse.show,
+.accordion-button,
+.accordion-button::after,
+.faqc,
+.faqc-head,
+.faqc-head i,
+.faqc-body,
+.wa-float,
+.wa-float i,
+.btn,
+.home-motion,
+.reveal,
+.page-slide-up,
+.faq-card-in {
+  transition-duration: .9s;
+  animation-duration: 1.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
 
