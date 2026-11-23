@@ -2408,7 +2408,7 @@ img {
   display: flex;
   align-items: center;
   color: #fff;
-  padding: 3.2rem 3rem 3rem 4.8rem;
+  padding: 3.2rem 4rem 4rem 2.8rem;
 }
 
 .cs-inner {
@@ -2420,7 +2420,7 @@ img {
   color: #0fcc7c;
   font-weight: 700;
   text-transform: uppercase;
-  font-size: .72rem;
+  font-size: 16px;
   letter-spacing: .02em;
   margin: 0 0 1rem;
 }
@@ -2428,14 +2428,14 @@ img {
 .cs-inner h2 {
   color: #fff;
   font-weight: 700;
-  font-size: clamp(1.3rem, 1.95vw, 1.7rem);
+  font-size:40px;
   line-height: 1.2;
   margin: 0 0 .9rem;
 }
 
 .cs-lead {
   color: #fff;
-  font-size: .78rem;
+  font-size: 16px;
   line-height: 1.6;
   margin: 0;
 }
@@ -2455,8 +2455,8 @@ img {
 }
 
 .cs-circ {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   flex: none;
   border-radius: 50%;
   background: #0fcc7c;
@@ -2464,19 +2464,19 @@ img {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.15rem;
+  font-size: 35px;
 }
 
 .cs-item h3 {
   color: #fff;
-  font-size: .85rem;
+  font-size: 17px;
   font-weight: 700;
   margin: 0 0 .15rem;
 }
 
 .cs-item p {
   color: rgba(255, 255, 255, .62);
-  font-size: .75rem;
+  font-size: 16px;
   line-height: 1.75;
   margin: 0;
 }
