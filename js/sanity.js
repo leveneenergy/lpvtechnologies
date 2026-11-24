@@ -13,6 +13,12 @@
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]; }); }
   function safeUrl(u) { return /^(https?:|mailto:|tel:|\/|#)/i.test(u || "") ? u : "#"; }
   function qs(name) { return new URLSearchParams(location.search).get(name); }
+  function isLocalDevelopment() {
+    var hostname = window.location.hostname.toLowerCase();
+    return window.location.protocol === "file:" || hostname === "localhost" ||
+      hostname === "127.0.0.1" || hostname === "::1" || hostname === "[::1]" ||
+      /\.localhost$/.test(hostname);
+  }
   function fmtDate(d) { try { return new Date(d).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" }); } catch (e) { return ""; } }
   function img(url, w) { return url && url.indexOf("cdn.sanity.io") > -1 ? url + (url.indexOf("?") > -1 ? "&" : "?") + "w=" + (w || 900) + "&auto=format" : url; }
   function blogUrl(section, params) {
@@ -282,6 +288,7 @@
   }
   R["product-page"] = function (box) {
     var fixed = box.getAttribute("data-slug"), slug = fixed || qs("slug"); if (!slug) return notFound(box, "Product");
+    if (fixed && isLocalDevelopment()) return Promise.resolve();
     return fetchQuery(Q.product, { slug: slug }).then(function (d) {
       if (!d) { return fixed ? null : notFound(box, "Product"); }
       setMeta(d.title, excerpt(d.description, 155), d.image && (d.image.url || d.image));
@@ -337,7 +344,7 @@
     var toggles = document.querySelectorAll(".lp-nav .dropdown-toggle");
     var menu = null;
     toggles.forEach(function (t) { if (/^\s*Products\s*$/.test(t.textContent)) menu = t.parentNode.querySelector(".dropdown-menu"); });
-    if (!menu) return;
+    if (!menu || isLocalDevelopment()) return;
     var siteRoot = window.LPVT_SITE_ROOT || new URL("./", window.location.href);
     var staticPages = {
       "green-impact": true,
